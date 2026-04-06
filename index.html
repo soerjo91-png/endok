@@ -1749,8 +1749,19 @@ function updatePublicClock(){
 }
 function renderPublicDashboard(){
   // Stok dari admin/pusat saja
-  const adminData=FBDB._c.filter(x=>x.userId==='admin'||!x.userId);
-  const stok=adminData.reduce((s,x)=>x.type==='k'?s+Number(x.qty||0):s-Number(x.qty||0),0);
+ // const adminData=FBDB._c.filter(x=>x.userId==='admin'||!x.userId);
+  //const stok=adminData.reduce((s,x)=>x.type==='k'?s+Number(x.qty||0):s-Number(x.qty||0),0);
+  const semua = FBDB.get();
+const stokAdmin = semua
+  .filter(x => x.userId === 'admin' || !x.userId)
+  .reduce((s, x) => x.type === 'k'
+    ? s + Number(x.qty || 0)
+    : s - Number(x.qty || 0), 0);
+
+const stokKirim = TRANSFERDB.get()
+  .reduce((s, t) => s + Number(t.qty || 0), 0);
+
+const stok = stokAdmin - stokKirim;
   const hp=CONFIGDB.get().hargaPublik||0;
   const se=document.getElementById('publicStok');
   const he=document.getElementById('publicHarga');
