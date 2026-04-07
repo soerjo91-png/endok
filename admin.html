@@ -1078,21 +1078,26 @@ window.closeSidebar=function(){
   document.getElementById('overlayBg').classList.remove('show');
 }
 
-window.switchTab = function(tabName, e){
-  document.querySelectorAll('.nav-item').forEach(el=>{
+function switchTab(tab, event) {
+  // hide semua tab
+  document.querySelectorAll('.tab-panel').forEach(el => {
     el.classList.remove('active');
   });
 
-  if(e) e.currentTarget.classList.add('active');
+  // tampilkan tab yang dipilih
+  const target = document.getElementById('tab-' + tab);
+  if (target) target.classList.add('active');
 
-  document.querySelectorAll('.tab-panel').forEach(el=>{
+  // reset semua menu
+  document.querySelectorAll('.nav-item').forEach(el => {
     el.classList.remove('active');
   });
 
-  const target = document.getElementById('tab-' + tabName);
-  if(target) target.classList.add('active');
-};
-
+  // aktifkan yang diklik
+  if (event) {
+    event.currentTarget.classList.add('active');
+  }
+}
 
   
 </script>
