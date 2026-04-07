@@ -424,7 +424,10 @@ async function loadAll(){
 }
 
 async function loadTransfers(){
-  const q=query(collection(db,'transaksi_transfer'),where('agen_id','==',currentAgenId),orderBy('tanggal','asc'));
+  const q = query(
+  collection(db,'transaksi_transfer'),
+  where('agen_id','==',currentAgenId));
+  ,orderBy('tanggal','asc'));
   const snap=await getDocs(q);
   _transfers=snap.docs.map(d=>({id:d.id,...d.data()}));
 }
