@@ -1073,4 +1073,42 @@ window.closeSidebar=function(){
 }
 </script>
 </body>
+
+  ...
+<!-- semua HTML kamu -->
+
+<script>
+
+// 👉 function pindah tab
+window.switchTab = function(tab){
+  document.querySelectorAll('.tab-panel').forEach(el=>{
+    el.classList.remove('active');
+  });
+
+  const el = document.getElementById('tab-' + tab);
+  if(el) el.classList.add('active');
+
+  document.querySelectorAll('.nav-item').forEach(nav=>{
+    nav.classList.remove('active');
+  });
+
+  event.currentTarget.classList.add('active');
+}
+
+
+// ---- Mobile Sidebar ----
+window.toggleSidebar=function(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlayBg').classList.toggle('show');
+}
+window.closeSidebar=function(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('overlayBg').classList.remove('show');
+}
+
+</script>
+
+</body>
+</html>
+  
 </html>
