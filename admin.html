@@ -468,6 +468,12 @@ tbody td{padding:10px 14px;color:var(--brown)}
 <div class="toast" id="toast"></div>
 
 <script type="module">
+
+  function doLogout(){
+  signOut(auth);
+}
+window.doLogout = doLogout;
+  
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore, collection, getDocs, getDoc, setDoc, addDoc, updateDoc, deleteDoc, doc, query, orderBy, limit, where, serverTimestamp, Timestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
