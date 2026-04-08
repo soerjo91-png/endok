@@ -74,36 +74,81 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 .topbar-right{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--ink3);font-weight:600}
 .content{padding:24px 28px;flex:1}
 
-/* ── BOTTOM NAV ── */
-.bottom-nav{
-  display:none;position:fixed;bottom:0;left:0;right:0;
-  background:rgba(14,17,23,0.97);backdrop-filter:blur(16px);
-  z-index:200;border-top:1px solid rgba(255,255,255,0.08);
-  padding-bottom:env(safe-area-inset-bottom,0);
+/* ── BOTTOM NAV BARU ── */
+.bottom-nav {
+  display: none; 
+  position: fixed; 
+  bottom: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 400;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px); 
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  height: var(--nav-h); 
+  padding: 0;
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
-.bottom-nav-inner{display:flex;align-items:stretch;min-height:62px}
-.bottom-nav-item{
-  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:10px 4px 12px;cursor:pointer;color:rgba(255,255,255,0.35);
-  font-size:.68rem;font-weight:700;transition:color .15s,background .15s;
-  gap:4px;text-align:center;border:none;background:none;
-  font-family:'Plus Jakarta Sans',sans-serif;min-width:0;-webkit-tap-highlight-color:transparent;
-  letter-spacing:0.3px;text-transform:uppercase;
+.bottom-nav-inner { 
+  display: flex; 
+  align-items: stretch; 
+  height: 100%; 
 }
-.bottom-nav-item .bn-icon{font-size:1.35rem;line-height:1}
-.bottom-nav-item.active{color:var(--or);background:rgba(255,107,44,0.08)}
-.bottom-nav-item:active{background:rgba(255,255,255,.06)}
-.bottom-nav-item:hover{color:rgba(255,255,255,0.8)}
-.bottom-nav-logout{
-  flex:none;display:flex;align-items:center;justify-content:center;
-  padding:10px 14px 12px;cursor:pointer;color:#fca5a5;
-  font-size:.68rem;font-weight:700;gap:4px;flex-direction:column;
-  border:none;background:rgba(239,68,68,0.12);
-  font-family:'Plus Jakarta Sans',sans-serif;
-  border-left:1px solid rgba(255,255,255,.08);-webkit-tap-highlight-color:transparent;
-  text-transform:uppercase;letter-spacing:0.3px;
+.bottom-nav-item {
+  flex: 1; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  cursor: pointer; 
+  color: var(--ink3); 
+  font-size: 10px; 
+  font-weight: 700;
+  gap: 4px; 
+  text-align: center; 
+  border: none; 
+  background: none;
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+  position: relative;
+  transition: 0.2s; 
+  text-transform: uppercase; 
+  letter-spacing: 0.5px;
 }
-.bottom-nav-logout .bn-icon{font-size:1.35rem;line-height:1}
+.bottom-nav-item .bn-icon { 
+  font-size: 20px; 
+  line-height: 1; 
+}
+.bottom-nav-item.active { 
+  color: var(--or); 
+  background: transparent; 
+}
+/* Indikator Garis Oranye */
+.bottom-nav-item.active::after {
+  content: ''; 
+  position: absolute; 
+  top: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 28px; 
+  height: 3px; 
+  background: var(--or); 
+  border-radius: 0 0 4px 4px;
+}
+.bottom-nav-item.active .bn-icon { 
+  transform: translateY(-2px); 
+}
+.bottom-nav-logout { 
+  flex: none; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 0 16px; 
+  color: var(--re); 
+  font-weight: 700; 
+  background: none; 
+  border: none;
+}
 
 /* ── TABS ── */
 .tab-panel{display:none}
@@ -362,13 +407,19 @@ tbody td{padding:10px 14px;color:var(--ink2);font-size:.84rem}
 
 <div class="main-wrap">
   <div class="topbar">
-    <div style="display:flex;align-items:center;gap:12px">
-      <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-      <div class="topbar-title" id="topbarTitle">Dashboard Admin</div>
+    <div style="display:flex;align-items:center;gap:15px">
+      <i class="fas fa-bars" onclick="toggleSidebar()" style="font-size:20px;color:var(--ink);cursor:pointer"></i>
+      
+      <div style="width:34px;height:34px;background:linear-gradient(135deg,var(--or),var(--or-d));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 10px var(--or-glow)">
+        <i class="fas fa-user-shield" style="font-size:16px"></i>
+      </div>
+
+      <h1 id="topbarTitle" style="font-size:1.1rem;font-weight:700;color:var(--ink);margin:0">Dashboard</h1>
     </div>
-    <div class="topbar-right">
-      <span id="topbarTime"></span>
-      <span id="adminName" style="font-weight:600;color:var(--brown)"></span>
+
+    <div class="topbar-right" style="display:flex;align-items:center;gap:12px">
+      <span id="topbarTime" style="font-size:0.85rem;color:var(--ink3)"></span>
+      <span id="adminName" style="font-weight:700;color:var(--or);font-size:0.9rem"></span>
     </div>
   </div>
 
