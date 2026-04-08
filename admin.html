@@ -10,19 +10,18 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
-  --or:#FF6B2C;--or-s:#FFF1EB;--or-d:#D94E12;--or-glow:rgba(255,107,44,0.22);
-  --gr:#00B87A;--gr-s:#E6FBF4;
-  --re:#EF4444;--re-s:#FEF2F2;
-  --bl:#3B6FFF;--bl-s:#EEF3FF;
-  --am:#F59E0B;--am-s:#FFFBEB;
   --ink:#111318;--ink2:#2D3142;--ink3:#6B7280;--ink4:#C4C9D4;
   --bg:#F4F6FA;--bg2:#ECEEF5;--bg3:#E0E3EF;
-  --surface:#FFFFFF;--border:#DDE1EF;--cream:#FAF6FF;
-  --sh:0 1px 3px rgba(17,19,24,0.06),0 4px 16px rgba(17,19,24,0.06);
+  --surface:#FFFFFF;--border:#DDE1EF;
+  --or:#FF6B2C;--or-s:#FFF1EB;--or-d:#D94E12;--or-glow:rgba(255,107,44,0.25);
+  --gr:#00B87A;--gr-s:#E6FBF4;--gr-d:#007A52;
+  --re:#EF4444;--re-s:#FEF2F2;--re-d:#B91C1C;
+  --bl:#3B6FFF;--bl-s:#EEF3FF;--bl-d:#1E3A8A;
+  --am:#F59E0B;--am-s:#FFFBEB;--am-d:#92400E;
+  --sh:0 1px 3px rgba(17,19,24,0.06), 0 4px 16px rgba(17,19,24,0.06);
   --sh2:0 8px 32px rgba(17,19,24,0.12);
   --r:14px;--rf:999px;
-  --sidebar:230px;
-  --sd-bg:#0e1117;--sd-bg2:#1a1f2e;
+  --nav-h:68px; /* Tambahan untuk navigasi agen */
 }
 body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;display:flex}
 ::-webkit-scrollbar{width:5px;height:5px}
@@ -62,11 +61,14 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 
 /* ── MAIN ── */
 .main-wrap{margin-left:var(--sidebar);flex:1;min-height:100vh;display:flex;flex-direction:column}
-.topbar{
-  background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);padding:0 24px;height:58px;
-  display:flex;align-items:center;justify-content:space-between;
-  position:sticky;top:0;z-index:50;
+.topbar {
+  position: sticky; top: 0; z-index: 300;
+  background: rgba(255,255,255,0.85);
+  padding: 12px 20px; display: flex; align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  height: auto;
 }
 .topbar-title{font-weight:800;font-size:1rem;color:var(--ink);letter-spacing:-0.3px}
 .topbar-right{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--ink3);font-weight:600}
