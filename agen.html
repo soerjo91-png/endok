@@ -147,7 +147,11 @@ body.has-nav{padding-bottom:calc(var(--nav-h) + 12px)}
   border-radius:var(--r);border:1px solid var(--border);
   box-shadow:var(--sh);background:var(--surface);
 }
-.tbl-wrap table{min-width:950px}
+.tbl-wrap table {
+  min-width: 950px;
+  width: 100%;
+  border-collapse: collapse;
+}
 table{width:100%;border-collapse:collapse;background:var(--surface);font-size:.84rem}
 thead{background:var(--bg)}
 thead th{
@@ -160,7 +164,14 @@ thead th{
 tbody tr{border-bottom:1px solid var(--bg2);transition:background .15s}
 tbody tr:hover{background:var(--bg)}
 tbody tr:last-child td{border-bottom:none}
-tbody td{padding:10px 14px;color:var(--ink2);font-size:.84rem;white-space: nowrap;vertical-align: middle;}
+tbody td {
+  padding: 12px 14px; /* Padding sedikit lebih lebar agar tidak sesak */
+  color: var(--ink2);
+  font-size: .84rem;
+  white-space: nowrap; /* WAJIB: Agar teks tidak menumpuk/pecah baris */
+  vertical-align: middle;
+  border-bottom: 1px solid var(--bg2);
+}
 .badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:var(--rf);font-size:.7rem;font-weight:700}
 .badge-green{background:var(--gr-s);color:#007A52}
 .badge-red{background:var(--re-s);color:#B91C1C}
@@ -292,8 +303,7 @@ tbody td{padding:10px 14px;color:var(--ink2);font-size:.84rem;white-space: nowra
   .kpi-label{font-size:.66rem}
   .filter-dates{flex-wrap:wrap;gap:4px}
   .filter-dates input{font-size:.74rem;padding:4px 8px}
-  thead th{padding:9px 8px;font-size:.68rem}
-  tbody td{padding:8px 8px}
+ 
   .modal{padding:22px 16px}
 }
 
