@@ -32,20 +32,44 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 
 
 /* ── MAIN ── */
-.main-wrap{margin-left:var(--sidebar);flex:1;min-height:100vh;display:flex;flex-direction:column}
+.main-wrap {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0; /* Pastikan ini 0 */
+}
+
 .topbar {
-  position: sticky; top: 0; z-index: 300;
-  background: rgba(255,255,255,0.85);
-  padding: 12px 20px; display: flex; align-items: center;
+  position: sticky; 
+  top: 0; 
+  z-index: 300;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 12px 20px; 
+  display: flex; 
+  align-items: center;
   justify-content: space-between;
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px); 
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   height: auto;
 }
-.topbar-title{font-weight:800;font-size:1rem;color:var(--ink);letter-spacing:-0.3px}
-.topbar-right{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--ink3);font-weight:600}
-.content{padding:24px 28px;flex:1}
 
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--ink3);
+  font-weight: 600;
+}
+
+.content {
+  padding: 20px; /* Padding lebih kecil agar lebih lega di mobile */
+  flex: 1;
+  padding-bottom: 100px; /* Jarak agar tidak tertutup navigasi bawah */
+}
 /* ── BOTTOM NAV BARU ── */
 .bottom-nav {
   display: none; 
