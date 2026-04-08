@@ -8,47 +8,74 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 
-  <style>
-/* Integrasi Tampilan suka.html dengan Font Tetap Admin */
+<style>
 :root {
-  --ink:#111318; --ink3:#6B7280;
-  --bg:#F4F6FA; --bg2:#ECEEF5;
-  --surface:#FFFFFF; --border:#DDE1EF;
-  --or:#FF6B2C; --or-d:#D94E12; --or-glow:rgba(255,107,44,0.25);
-  --gr:#00B87A; --re:#EF4444; --bl:#3B6FFF;
-  --sh:0 1px 3px rgba(17,19,24,0.06), 0 4px 16px rgba(17,19,24,0.06);
-  --r:14px; --nav-h:68px;
-  --font-admin: 'Plus Jakarta Sans', sans-serif;
+  --yolk: #FF6B2C;
+  --yolk-dark: #D94E12;
+  --shell: #F4F6FA;
+  --brown: #111318;
+  --brown-mid: #6B7280;
+  --cream: #ECEEF5;
+  --green: #00B87A;
+  --red: #EF4444;
+  --blue: #3B6FFF;
+  --card: #FFFFFF;
+  --shadow: 0 4px 20px rgba(0,0,0,0.05);
+  --border: #DDE1EF;
+  --r: 12px;
+  --sidebar: 240px;
 }
 
-body { font-family: var(--font-admin); background: var(--bg); color: var(--ink); margin:0; }
-
-/* Sembunyikan sidebar lama jika ingin beralih ke konsep Mobile-First suka.html */
-.sidebar { display: none; }
-.main-wrap { margin-left: 0 !important; width: 100%; }
-
-/* KPI Khusus Admin */
-.kpi-card { border-top: 4px solid var(--border); }
-.kpi-card.c-yolk { border-top-color: var(--or); }
-.kpi-card.c-green { border-top-color: var(--gr); }
-.kpi-card.c-blue { border-top-color: var(--bl); }
-
-/* Table modern ala suka.html */
-.tbl-wrap { 
-  overflow-x: auto; background: var(--surface); 
-  border-radius: var(--r); border: 1px solid var(--border); 
-  box-shadow: var(--sh); 
+body { 
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+  background: var(--shell); 
+  color: var(--brown); 
 }
-table thead { background: var(--bg2); }
-table th { color: var(--ink3); font-weight: 700; text-transform: uppercase; font-size: 11px; }
 
-/* Navigasi bawah tetap sama dengan agen untuk keselarasan */
-.nav {
-  position: fixed; bottom: 0; left: 0; right: 0; height: var(--nav-h);
-  background: rgba(255,255,255,0.95); backdrop-filter: blur(16px);
-  border-top: 1px solid var(--border); display: flex; z-index: 300;
+/* Sidebar Admin tetap di kiri tapi dengan warna gelap suka.html */
+.sidebar {
+  background: #111318;
+  border-right: 1px solid var(--border);
+}
+
+.nav-item.active {
+  background: linear-gradient(135deg, var(--yolk) 0%, var(--yolk-dark) 100%);
+  color: white;
+}
+
+/* Table Style agar lebih bersih */
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+th {
+  background: var(--cream);
+  color: var(--brown-mid);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px;
+}
+
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 12px;
+}
+
+/* Input Form ala suka.html */
+input, select, textarea {
+  border: 1.5px solid var(--border) !important;
+  border-radius: 10px !important;
+  padding: 10px !important;
+}
+
+input:focus {
+  border-color: var(--yolk) !important;
+  outline: none;
 }
 </style>
+  
   
 </head>
 <body>
