@@ -678,7 +678,17 @@ const db=getFirestore(app);
 const rp=n=>n||n===0?'Rp '+Number(n).toLocaleString('id-ID'):'—';
 const fmt=n=>n||n===0?Number(n).toLocaleString('id-ID'):'—';
 function showToast(msg,type='success'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast show '+type;clearTimeout(t._t);t._t=setTimeout(()=>t.className='toast',3000)}
-function isoDate(d){if(!d)return'';if(typeof d==='string')return d.slice(0,10);if(d.toDate)return d.toDate().toISOString().slice(0,10);return''}
+function isoDate(d){
+  if(!d)return'';
+  if(typeof d==='string')return d.slice(0,10);
+  if(d.toDate){
+    const date = d.toDate();
+    const offset = date.getTimezoneOffset();
+    const localDate = new Date(date.getTime() - (offset * 60 * 1000));
+    return localDate.toISOString().slice(0,10);
+  }
+  return '';
+}
 function parseDateStr(s){if(!s)return null;const[y,m,dd]=s.split('-');return new Date(+y,+m-1,+dd)}
 function today(){return new Date().toISOString().slice(0,10)}
 
